@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events • E‑Cell NIT Silchar</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo.png">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="events.css">
+</head>
+
+<body>
+  <!-- simple navbar -->
+  <header class="navbar">
+    <div class="container">
+      <img src="assets/logo.png" alt="E-Cell Logo" class="logo" />
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="ourteam.html">Team</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+</header>
+
+  <!-- EVENTS GRID -->
+  <section class="section gray-bg" id="events">
+    <h2>Flagship Events</h2>
+
+    <div class="cards-grid">
+      <!-- Each card’s data‑modules attribute holds the module list -->
+<div class="event-card"
+     data-name="ENGENIUS"
+     data-modules="Shark Tank NITS,What If,CEO Roleplay,Pitch Boxing,Bech Ke Dikhao"
+     data-winners="assets/events/engenius/sharktank.png,assets/events/engenius/whatif.png,assets/events/engenius/ceoroleplay.png,assets/events/engenius/pitchboxing.png,assets/events/engenius/bechkedikhao.png"
+     data-captions="ENGENIUS,Shark Tank NITS,What If?,CEO Roleplay,Pitch Boxing,Bech Ke Dikhao">
+  <img src="assets/events/engenius.png" alt="Engenius">
+  <h3>ENGENIUS</h3>
+</div>
+
+<div class="event-card"
+     data-name="EMPRESARIO"
+     data-modules="Brando-thon, Business Hackathon, Pitchers, What If I Were a CEO, Treasure Hunt, Bech Ke Dikhao "
+     data-winners="assets/events/empresario/brandothon.png, assets/events/empresario/business.png,assets/events/empresario/pitchers.png,assets/events/empresario/whatif.png,assets/events/empresario/treasure.png,assets/events/empresario/bechkedikhao.png"
+     data-captions="EMPRESARIO,Brando-thon, Business Hackathon, Pitchers, What If I Were a CEO, Treasure Hunt, Bech Ke Dikhao ">
+  <img src="assets/events/empresario.png" alt="Empresario">
+  <h3>EMPRESARIO</h3>
+</div>
+
+      <div class="event-card" data-name="Eminence"
+           data-modules="E-Questa, E-Hack, Investor's Gambit, Founders x Funders"
+           data-winners="assets/events/eminence/page1.png,assets/events/eminence/round1.png,assets/events/eminence/round2.png,assets/events/eminence/round3.png"
+           data-captions="EMINENCE,EMINENCE,E-Questa, E-Hack,Founders x Funders">
+        <img src="assets/events/eminence.png" alt="Eminence">
+        <h3>EMINENCE</h3>
+      </div>
+
+      <div class="event-card" data-name="EIC"
+           data-modules="Board of Directors, Ad-O-Venture, Business Beats, Campus Rewired, The Entrepreneur's Escape"
+           data-winners="assets/events/eic/bod.png,assets/events/eic/ad.png, assets/events/eic/quiz.png, assets/events/eic/pitch.png, assets/events/eic/escape.png"
+           data-captions="EIC, Board of Directors, Ad-O-Venture, Business Beats, Campus Rewired, The Entrepreneur's Escape">
+        <img src="assets/events/eic.png" alt="EIC">
+        <h3>EIC</h3>
+      </div>
+
+      <div class="event-card" data-name="Srijan"
+           data-modules="Pitch Please, Tech Nerds, Outwit The Boardroom, Exchange Your Ideas, Start-Up Expo, Entrepreneurship Auction, Stock Market Simulation, Case Study Canvas, Business Quiz, Entrepreneurship Workshop, Panel Discussion, Speaker Session"
+           data-winners="assets/events/srijan/4.png,assets/events/srijan/1.png,assets/events/srijan/15.png,assets/events/srijan/14.png,assets/events/srijan/13.png,assets/events/srijan/12.png,assets/events/srijan/11.png,assets/events/srijan/10.png,assets/events/srijan/7.png,assets/events/srijan/6.png,assets/events/srijan/5.png,assets/events/srijan/2.png,assets/events/srijan/9.png,assets/events/srijan/8.png,assets/events/srijan/3.png"
+           data-captions="PANEL DISCUSSION, INAUGURAL CEREMONY, ENTREPRENURSHIP WORKSHOP, PITCH PLEASE, TECH NERDS, OUTWIT THE BOARDROOM, EXCHANGE YOUR IDEAS, START-UP EXPO, ENTREPRENURSHIP AUCTION, CASE STUDY CANVAS, STOCK MARKET SIMULATION, BUSINESS QUIZ, SPEAKER SESSION,SPEAKER SESSION,SPEAKER SESSION,SPEAKER SESSION ">
+        <img src="assets/events/srijan.png" alt="Srijan">
+        <h3>SRIJAN</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- POP‑UP MODAL -->
+  
+<div id="moduleModal" class="modal hidden">
+  <div class="modal-content">
+    <button class="close" type="button">&times;</button>
+    <h3 id="modalTitle"></h3>
+    <ul id="modulesList"></ul>
+  </div>
+</div>
+<!-- NEW EVENT POP‑UP -->
+<div id="eventModal" class="modal hidden">
+  <div class="modal-content">
+    <button class="close" type="button">&times;</button>
+
+    <img id="slideImg" src="" alt="Slide" />
+    <div class="controls">
+      <button id="prevSlide" aria-label="Previous">&#8592;</button>
+      <span id="slideCaption"></span>
+      <button id="nextSlide" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+
+  
+<!-- SCRIPT -->
+<script>
+/* ---------- EXPAND‑IN‑PLACE MODULES (bullet‑less) ---------- */
+const cards = document.querySelectorAll('.event-card');
+
+cards.forEach(card => {
+  /* build hidden list once */
+  const list = document.createElement('ul');
+  list.className = 'modules-list';
+  list.style.display = 'none';
+  list.innerHTML = card.dataset.modules
+                     .split(',')
+                     .map(m => `<li>${m.trim()}</li>`).join('');
+  card.appendChild(list);
+
+  /* clicking the CARD toggles the module list */
+  card.addEventListener('click', () => {
+    list.style.display = list.style.display === 'none' ? 'block' : 'none';
+  });
+});
+
+/* ---------- EVENT POP‑UP (poster + winners carousel) ---------- */
+const eventModal = document.getElementById('eventModal');
+const slideImg   = document.getElementById('slideImg');
+const slideCap   = document.getElementById('slideCaption');
+const prevBtn    = document.getElementById('prevSlide');
+const nextBtn    = document.getElementById('nextSlide');
+const closeBtn   = eventModal.querySelector('.close');
+
+cards.forEach(card => {
+  const nameEl = card.querySelector('h3');     // only the name opens pop‑up
+  nameEl.addEventListener('click', e => {
+    e.stopPropagation();                       // prevent list toggle
+    openSlideShow(card);
+  });
+});
+
+function openSlideShow(card){
+  const poster   = card.querySelector('img').src;
+  const winners  = (card.dataset.winners || '')
+                    .split(',')
+                    .map(w => w.trim())
+                    .filter(Boolean);
+  const captions = (card.dataset.captions || '')
+                    .split(',')
+                    .map(c => c.trim());
+
+  const slides = [poster, ...winners];
+  let idx = 0;
+
+  const show = () => {
+    slideImg.src = slides[idx];
+    slideCap.textContent = captions[idx] || `Slide ${idx + 1}`;
+  };
+  show();
+
+  prevBtn.onclick = () => { idx = (idx - 1 + slides.length) % slides.length; show(); };
+  nextBtn.onclick = () => { idx = (idx + 1) % slides.length; show(); };
+
+  eventModal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+
+closeBtn.addEventListener('click', closeSlideShow);
+eventModal.addEventListener('click', e => { if (e.target === eventModal) closeSlideShow(); });
+
+function closeSlideShow(){
+  eventModal.classList.add('hidden');
+  document.body.style.overflow = '';
+}
+</script>
+
+<!--Footer-->
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <img src="assets/logo.png" alt="E-Cell Logo" class="footer-logo" />
+      <p>Entrepreneurship Cell, NIT Silchar</p>
+      <p>We thrive to develop the attitude of self-dependence among the willing.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p><strong>Email:</strong> <a href="mailto:ecell@nits.ac.in?subject=Inquiry%20from%20E-Cell%20Website&body=Hello%20E-Cell%20Team,">
+  ecell@nits.ac.in
+</a></p>
+     <p><strong>Phone:</strong> <a href="tel:+918136099500">+91-81360-99500</a></p>
+
+      <p><strong>Location:</strong><br>
+  <a href="https://www.google.com/maps/search/?api=1&query=StartUp+Centre,+NIT+Silchar,+Assam+788010" target="_blank" rel="noopener">
+    StartUp Centre, NIT Silchar<br>Silchar, Assam – 788010
+  </a>
+</p>
+
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html#hero">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="our-team.html">Team</a></li>
+        <li><a href="signup.html">Join Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/ecell.nitsilchar/"><img src="assets/insta.png" alt="Instagram" /></a>
+        <a href="https://www.facebook.com/ecell.nit.silchar/"><img src="assets/fb.png" alt="Facebook" /></a>
+        <a href="https://github.com/Ecell-NITS"><img src="assets/github.png" alt="GitHub" /></a>
+        <a href="https://www.linkedin.com/company/ecell-nit-silchar/posts/?feedView=all"><img src="assets/linkedin.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 E-Cell NIT Silchar. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

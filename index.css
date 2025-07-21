@@ -1,0 +1,480 @@
+:root {
+  --dark-bg: #fdfdff;
+  --section-bg: #ffffff63;
+  --accent: #bd9f67;
+  --text-light: #a6b5c4;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  background: var(--dark-bg);
+  color: var(--white);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+header.navbar {
+  background: var(--section-bg);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: #121212;
+  font-weight: 500;
+}
+
+.hero {
+  height: 100vh; /* Full viewport height */
+  background-image: url("assets/hero.jpeg");
+  background-size: cover;           /* Covers the entire area */
+  background-position: center;      /* Keeps it centered */
+  background-repeat: no-repeat;     /* No repeat */
+  background-attachment: fixed;     /* Optional: adds parallax effect */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+
+
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.185);
+  z-index: 0;
+  pointer-events: none;     /* 👈 key line: clicks go through */
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background: var(--accent);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent-hover);
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.gray-bg {
+  background: var(--section-bg);
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--accent);
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  position: relative;
+  background: #243137;           /* same tone as testimonial cards */
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* golden “frame” with a gap around the card */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -5px;                  /* gap size */
+  border: 3px solid var(--accent);
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/*Collab*/
+/* --- layout helpers --- */
+.collab-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto 2rem;
+}
+
+/* horizontal logo rail */
+.collab-logos {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;   /* for nice sliding */
+  padding: 10px 0;
+}
+
+/* hide the ugly native scrollbar */
+.collab-logos::-webkit-scrollbar { display: none; }   /* Chrome / Safari */
+.collab-logos { scrollbar-width: none; }              /* Firefox */
+
+/* optional: fit logos neatly */
+.collab-logos img {
+  height: 80px;          /* tweak as needed */
+  flex: 0 0 auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* arrow buttons */
+.collab-nav {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  background: #c4a56f;      /* your gold tone */
+  color: #000;              /* high contrast */
+  border: none;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  opacity: 0.85;
+  transition: opacity .2s, transform .2s;
+  z-index: 10;
+}
+.collab-nav:hover   { opacity: 1;    transform: translateY(-50%) scale(1.05); }
+.collab-nav:active  { transform: translateY(-50%) scale(.95); }
+.collab-nav.prev { left:  -20px;    }   /* slightly outside rail */
+.collab-nav.next { right: -20px;    }
+
+/* hide arrows when rail fits on screen (no overflow) */
+@media (max-width: 768px) {
+  .collab-nav { display: none; }
+}
+
+/* Testimonials Section */
+.testimonial-section {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonial-heading {
+   font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+/* Layout: Image Left, Text Right */
+.testimonial-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Image Styles */
+.testimonial-image img {
+  width: 280px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Text Card Styles */
+.testimonial-section {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.testimonial-heading {
+   font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.testimonial-card {
+  background-color: #212529;
+  color: #ffffff;
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  margin-bottom: 20px;
+}
+
+.testimonial-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #d4af37;
+}
+
+.testimonial-role {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quote-mark {
+  color: #d4af37;
+  font-size: 30px;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.quote-mark-end {
+  color: #d4af37;
+  font-size: 30px;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+}
+
+.testimonial-nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.testimonial-nav button {
+  background-color: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.testimonial-nav button:hover {
+  background-color: #d4af37;
+  color: #1b2a41;
+}
+
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  background: var(--accent);
+  font-weight: bold;
+  color: #000;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/*Footer*/
+footer {
+  background: #243137;
+  color: var(--text);
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h4 {
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.footer-col p,
+.footer-col li {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li a {
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent);
+}
+
+.footer-col a{
+  color: var(--text);
+}
+
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+
+
+.footer-logo {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  height: 24px;
+  width: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* ---------- PRE‑LOADER STYLES ---------- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 30%, #0b1a2a 0%, #030712 70%);
+  transition: opacity 0.6s ease;
+}
+
+/* logo pulse */
+#preloader img {
+  width: 140px;        /* tweak size as needed */
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.8; }
+  50%      { transform: scale(1.05); opacity: 1;   }
+}

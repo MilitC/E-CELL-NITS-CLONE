@@ -1,0 +1,288 @@
+/* ------------- base palette (reuse your variables) ------------- */
+:root {
+  --dark-bg: #fdfdff;
+  --section-bg: #ffffff63;
+  --accent: #bd9f67;
+  --gold: #c4a56f;
+  --card-bg: #243137;
+  --text-light: #a6b5c4;
+  --text-dark: #000;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  background: var(--dark-bg);
+  color: var(--white);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+header.navbar {
+  background: var(--section-bg);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li a {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/*resource*/
+.resource-tabs {
+  background: #212529;
+  top: 60px;           /* adjust if your navbar is taller */
+  z-index: 900;
+  border-bottom: 1px solid #111;
+}
+
+.resource-tabs ul {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  list-style: none;
+  padding: 12px 0;
+  margin: 0;
+}
+
+.resource-tabs a {
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.25s;
+}
+
+.resource-tabs a:hover {
+  color: var(--gold);
+}
+
+/* section overrides */
+.resource-section h2 {
+  color: var(--gold);
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 28px;
+}
+
+/* card grid */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* card */
+.resource-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 3px solid var(--accent);
+  overflow: hidden;
+  padding: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resource-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.55);
+}
+
+.resource-card img,
+.resource-card iframe {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.video-thumb {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.resource-card h3 {
+  padding: 16px 18px 0;
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.resource-card p {
+  padding: 8px 18px 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  flex-grow: 1;
+}
+
+.resource-card a {
+  display: inline-block;
+  margin: 14px 18px 0;
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* instagram grid tweaks */
+.insta-grid .instagram-media {
+  background: var(--card-bg);
+  border-radius: 12px;
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .resource-tabs ul { gap: 20px; font-size: 0.9rem; }
+  .resource-card img,
+  .resource-card iframe { height: 150px; }
+}
+
+/* === Show full book cover on hover === */
+.resource-card img {
+  height: 180px;           /* default cropped thumb */
+  object-fit: cover;
+  transition: height 0.35s ease, object-fit 0.35s ease;
+}
+
+.resource-card:hover img {
+  height: auto;            /* let it assume natural height */
+  max-height: 380px;       /* optional: cap so super‑tall covers don’t explode */
+  object-fit: contain;     /* show the whole image */
+}
+
+/*Footer*/
+footer {
+  margin-top: 40px;
+  background: #243137;
+  color: var(--text);
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h4 {
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.footer-col p,
+.footer-col li {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li a {
+  color: var(--text);
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: var(--accent);
+}
+
+.footer-col a{
+  color: var(--text);
+}
+
+
+.footer-col a:hover {
+  color: var(--accent);
+}
+
+
+.footer-logo {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  height: 24px;
+  width: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.resource-categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  background-color: transparent;
+  color: var(--gold); /* gold color */
+  border: 2px solid var(--gold);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background-color: var(--gold);
+  color: #000; /* black text on hover/active */
+}
+
+/* ↓ Slower hover animation just for cards inside the #books section */
+#books .resource-card,
+#books .resource-card * {          /* the * ensures the link / img animates too */
+  transition: all 0.6s ease;       /* was 0.2‑0.3 s by default → now 0.6 s */
+}
+
+
+
+

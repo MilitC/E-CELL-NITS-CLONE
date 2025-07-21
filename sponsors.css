@@ -1,0 +1,218 @@
+:root {
+  --bg: #fdfdff;
+  --gold: #c4a56f;
+  --text: #fff;
+  --text2:#000; 
+  --muted: #999;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  background: #c2bebe63;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  height: 48px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  color: var(--text2);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 40px 0 20px;
+  color: var(--gold);
+}
+
+.collaboration-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ------------- SPONSOR / COLLAB GRIDS ------------- */
+/* ---------- CENTERED 4‑IN‑A‑ROW SQUARE GRID ---------- */
+.collab-logos {
+  /* four equal columns, fixed width */
+  display: grid;
+  grid-template-columns: repeat(4, 160px); /* 4 squares of 160 px */
+  gap: 32px;
+  justify-content: center;  /* centers the whole grid block */
+  margin: 0 auto;           /* double‑safe centering */
+  padding: 30px 0;
+}
+
+/* make each <a> a perfect square tile */
+.collab-logos a {
+  width: 160px;
+  aspect-ratio: 1 / 1;      /* square */
+  background: #243137;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  transition: transform 0.25s;
+  border: 3px solid #bd9f67;  /* Gold-like color */
+}
+
+.collab-logos a:hover { transform: translateY(-4px); }
+
+/* keep logos nicely contained */
+.collab-logos img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+
+.collab-logos a:hover {
+  transform: translateY(-4px);  /* gentle lift on hover */
+}
+
+/* logo inside the square */
+.collab-logos img {
+  max-width: 70%;               /* keep some breathing room */
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.collab-logos img:hover {
+  transform: scale(1.06);            /* small lift on hover */
+}
+
+footer {
+  background: #000;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .collab-logos {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+  }
+
+  .collab-logos img {
+    height: 60px;
+  }
+}
+
+/*Footer*/
+footer {
+  background: #243137;
+  color: var(--text);
+  padding: 60px 0 30px;
+  font-size: 0.95rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: left;
+}
+
+.footer-col h4 {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.footer-col p,
+.footer-col li {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: var(--gold);
+}
+
+.footer-col a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.footer-col a:hover {
+  color: var(--gold);
+}
+
+.footer-logo {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  height: 24px;
+  width: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.15);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
